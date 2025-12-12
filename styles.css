@@ -1,7 +1,8 @@
 /* Importamos fuentes si no cargan del HTML */
 @import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
 
-body, html {
+body,
+html {
     height: 100%;
     margin: 0;
     font-family: 'Roboto', sans-serif;
@@ -9,7 +10,7 @@ body, html {
 
 .main-container {
     /* Aquí pones la foto de Machu Picchu */
-    background: url('img/fondo-montana.jpg') no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1587595431973-160d0d94add1?w=1920&h=1080&fit=crop') no-repeat center center/cover;
     min-height: 100vh;
     position: relative;
 }
@@ -19,7 +20,8 @@ body, html {
     font-family: 'Playfair Display', serif;
     font-weight: 700;
     font-size: 2rem;
-    border-bottom: 2px solid black; /* El subrayado grueso */
+    border-bottom: 2px solid black;
+    /* El subrayado grueso */
     padding-bottom: 5px;
     display: inline-block;
 }
@@ -40,7 +42,8 @@ body, html {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #ddd; /* Borde suave opcional */
+    border: 2px solid #ddd;
+    /* Borde suave opcional */
 }
 
 /* Redondear mucho la parte superior de la tarjeta blanca */
@@ -51,12 +54,16 @@ body, html {
 
 /* Footer negro al final */
 .footer-bar {
-    width: 100vw; /* Asegura que cubra el ancho completo */
-    margin-left: -1.5rem; /* Compensa el padding de la tarjeta padre */
+    width: 100vw;
+    /* Asegura que cubra el ancho completo */
+    margin-left: -1.5rem;
+    /* Compensa el padding de la tarjeta padre */
     margin-right: -1.5rem;
     width: calc(100% + 3rem);
-    margin-bottom: -1.5rem; /* Pega al borde inferior */
+    margin-bottom: -1.5rem;
+    /* Pega al borde inferior */
 }
+
 /* =========================================
    NUEVOS ESTILOS PARA REGISTRO (Agregar al final)
    ========================================= */
@@ -65,14 +72,15 @@ body, html {
 .profile-circle {
     width: 100px;
     height: 100px;
-    background: rgba(255, 255, 255, 0.2); /* Blanco transparente */
+    background: rgba(255, 255, 255, 0.2);
+    /* Blanco transparente */
     backdrop-filter: blur(5px);
     border: 4px solid white;
     border-radius: 50%;
     display: flex;
     justify-content: center;
     align-items: center;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 /* El icono del lápiz pequeño */
@@ -80,7 +88,8 @@ body, html {
     position: absolute;
     bottom: 0;
     right: 0;
-    background-color: transparent; /* O negro si prefieres */
+    background-color: transparent;
+    /* O negro si prefieres */
     border: 2px solid white;
     border-radius: 50%;
     width: 25px;
@@ -96,7 +105,8 @@ body, html {
 }
 
 /* Ajuste para que los inputs se vean altos y limpios como en el diseño */
-.form-control, .form-select {
+.form-control,
+.form-select {
     padding-top: 10px;
     padding-bottom: 10px;
 }
@@ -105,15 +115,16 @@ body, html {
 .btn-dark {
     background-color: #1a1a1a;
     border: none;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
 }
+
 /* =========================================
    NUEVOS ESTILOS PARA HOME Y DESTINOS
    ========================================= */
 
 /* Hero Banner Home */
 .hero-home {
-    background: url('img/hero-home-pool.jpg') no-repeat center center/cover;
+    background: url('https://images.unsplash.com/photo-1566073771259-6a8506099945?w=1920&h=800&fit=crop') no-repeat center center/cover;
     height: 350px;
     width: 100%;
 }
@@ -131,39 +142,46 @@ body, html {
 
 /* Gradiente para que el texto se lea bien sobre las fotos de destinos */
 .bg-gradient-destination {
-    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.8) 0%, rgba(0, 0, 0, 0) 60%);
 }
 
 .destination-card {
-    height: 200px; /* Altura fija para uniformidad */
+    height: 200px;
+    /* Altura fija para uniformidad */
 }
 
 .destination-card .card-img {
     height: 100%;
-    object-fit: cover; /* Asegura que la foto cubra toda la tarjeta */
+    object-fit: cover;
+    /* Asegura que la foto cubra toda la tarjeta */
 }
 
 .bg-gradient-dark {
-    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.9) 0%, rgba(0, 0, 0, 0) 100%);
 }
+
 /* =========================================
    ESTILOS PARA PANTALLA HOTELES (FILTROS)
    ========================================= */
 
 /* Estilo de los botones (Tabs) */
 .nav-pills .nav-link {
-    color: #000; /* Texto negro por defecto */
+    color: #000;
+    /* Texto negro por defecto */
     background-color: transparent;
     font-weight: 500;
 }
 
 /* Cuando el botón está activo (seleccionado) */
 .nav-pills .nav-link.active {
-    background-color: transparent; /* Fondo transparente */
+    background-color: transparent;
+    /* Fondo transparente */
     color: #000;
-    border-width: 2px !important; /* Borde más grueso */
+    border-width: 2px !important;
+    /* Borde más grueso */
     font-weight: bold;
-    box-shadow: 0 0 0 1px black; /* Truco para simular borde doble o resaltado */
+    box-shadow: 0 0 0 1px black;
+    /* Truco para simular borde doble o resaltado */
 }
 
 /* Altura fija para las imágenes del carrusel */
@@ -178,10 +196,12 @@ body, html {
     color: white;
     transition: background-color 0.3s;
 }
+
 .btn-black:hover {
     background-color: #333;
     color: white;
 }
+
 /* =========================================
    ESTILOS PARA FLUJO DE RESERVA Y PAGO
    ========================================= */
@@ -206,11 +226,13 @@ body, html {
     border-radius: 50% 0 0 50%;
     padding: 5px;
 }
+
 .selected-range {
     background-color: black;
     color: white;
     padding: 5px;
 }
+
 .selected-range-end {
     background-color: black;
     color: white;
@@ -222,7 +244,8 @@ body, html {
 .btn-white {
     background-color: white;
     color: black;
-    border: 1px solid #dee2e6; /* Borde gris suave */
+    border: 1px solid #dee2e6;
+    /* Borde gris suave */
     transition: all 0.2s;
 }
 
@@ -241,7 +264,8 @@ body, html {
 }
 
 /* Estilo y estado activo para botones de número de habitación */
-.room-btn:hover, .selected-room {
+.room-btn:hover,
+.selected-room {
     background-color: black !important;
     color: white !important;
     border-color: black !important;
@@ -250,7 +274,8 @@ body, html {
 /* Estado activo para método de pago */
 .selected-payment {
     border: 2px solid black !important;
-    background-color: #f8f9fa !important; /* Un gris muy clarito de fondo */
+    background-color: #f8f9fa !important;
+    /* Un gris muy clarito de fondo */
 }
 
 /* =========================================
@@ -276,38 +301,45 @@ body, html {
 .list-group-item-action:hover {
     background-color: #f9f9f9;
 }
+
 /* =========================================
    ESTILOS PARA PANTALLA DE RECOJO
    ========================================= */
 
 /* Botón Verde Limón Brillante */
 .btn-lime {
-    background-color: #66BB6A; /* Verde del diseño */
+    background-color: #66BB6A;
+    /* Verde del diseño */
     color: white;
     border: none;
     transition: background-color 0.3s;
 }
+
 .btn-lime:hover {
-    background-color: #4CAF50; /* Un poco más oscuro al pasar mouse */
+    background-color: #4CAF50;
+    /* Un poco más oscuro al pasar mouse */
     color: white;
 }
 
 /* Caja Azul de Información */
 .info-box-blue {
-    background-color: #E3F2FD; /* Fondo azul muy claro */
+    background-color: #E3F2FD;
+    /* Fondo azul muy claro */
     border: 1px solid #90CAF9;
-    color: #1565C0; /* Texto azul oscuro */
+    color: #1565C0;
+    /* Texto azul oscuro */
 }
 
 /* Tarjeta del Conductor (Gris azulado) */
 .driver-card {
-    background-color: #CFD8DC; 
+    background-color: #CFD8DC;
     border-radius: 15px;
 }
 
 /* Alerta Verde Claro */
 .bg-green-light {
-    background-color: #E8F5E9; /* Fondo muy suave */
+    background-color: #E8F5E9;
+    /* Fondo muy suave */
 }
 
 /* Botones redondos grandes (Llamar/Chat) */
@@ -324,6 +356,8 @@ body, html {
     color: black;
     transition: transform 0.2s;
 }
+
 .btn-round-action:active {
-    transform: scale(0.95); /* Efecto de clic */
+    transform: scale(0.95);
+    /* Efecto de clic */
 }

@@ -1,285 +1,469 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Mi Perfil - Casa Andina</title>
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
-    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="styles.css">
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
     <style>
-        /* Estilos específicos para las animaciones y vistas */
-        .view-section {
-            display: none; /* Oculto por defecto */
-            animation: fadeIn 0.4s ease-in-out;
+      /* Estilos específicos para las animaciones y vistas */
+      .view-section {
+        display: none; /* Oculto por defecto */
+        animation: fadeIn 0.4s ease-in-out;
+      }
+      .active-view {
+        display: block; /* Solo se muestra el activo */
+      }
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(20px);
         }
-        .active-view {
-            display: block; /* Solo se muestra el activo */
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
-        @keyframes fadeIn {
-            from { opacity: 0; transform: translateY(20px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
-        
-        /* Gradiente Morado para Editar Perfil */
-        .bg-purple-gradient {
-            background: linear-gradient(135deg, #d500f9, #651fff);
-            color: white;
-        }
-        
-        /* Tarjeta Verde para Historial */
-        .bg-green-card {
-            background-color: #00c853;
-            color: white;
-            border-radius: 20px;
-        }
+      }
+
+      /* Gradiente Morado para Editar Perfil */
+      .bg-purple-gradient {
+        background: linear-gradient(135deg, #d500f9, #651fff);
+        color: white;
+      }
+
+      /* Tarjeta Verde para Historial */
+      .bg-green-card {
+        background-color: #00c853;
+        color: white;
+        border-radius: 20px;
+      }
     </style>
-</head>
-<body class="bg-light">
-
+  </head>
+  <body class="bg-light">
     <div id="view-main" class="view-section active-view">
-        <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top shadow-sm">
-            <a href="home.html" class="text-white text-decoration-none"><i class="bi bi-arrow-left fs-2"></i></a>
-            <div class="flex-grow-1 text-center me-4"><span class="text-white fw-bold text-uppercase spacing-1">Mi Cuenta</span></div>
-        </header>
-
-        <div class="container py-4">
-            <div class="bg-white rounded-4 p-4 shadow-sm text-center mb-4 position-relative overflow-hidden">
-                <div class="position-absolute top-0 start-0 w-100 h-25 bg-gold opacity-50"></div>
-                <div class="position-relative z-2">
-                    <div class="d-inline-block position-relative mb-3">
-                        <img src="img/perfil-usuario.jpg" class="rounded-circle border border-4 border-white shadow-sm" style="width: 110px; height: 110px; object-fit: cover;">
-                        <button onclick="switchView('view-edit')" class="btn btn-black rounded-circle position-absolute bottom-0 end-0 p-2 border border-white" style="width: 35px; height: 35px; display: flex; align-items: center; justify-content: center;">
-                            <i class="bi bi-pencil-fill small"></i>
-                        </button>
-                    </div>
-                    <h3 class="fw-bold mb-0 font-serif">Issac Valdez</h3>
-                    <p class="text-secondary small mb-3">issacvaldez@gmail.com</p>
-                    <button onclick="switchView('view-edit')" class="btn btn-outline-dark rounded-pill px-4 py-1 btn-sm fw-bold">Editar perfil</button>
-                </div>
-            </div>
-
-            <h5 class="fw-bold mb-3 ps-2 border-start border-4 border-warning font-serif">General</h5>
-            <div class="list-group rounded-4 shadow-sm border-0 overflow-hidden mb-4">
-                <button onclick="switchView('view-reservas')" class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0 border-bottom">
-                    <div class="bg-light rounded-circle p-2 me-3 text-warning"><i class="bi bi-calendar-check-fill fs-5"></i></div>
-                    <div class="flex-grow-1 text-start">
-                        <h6 class="fw-bold mb-0">Mis Reservas</h6>
-                        <small class="text-secondary" style="font-size: 0.75rem;">Consulta tus próximas estancias</small>
-                    </div>
-                    <i class="bi bi-chevron-right text-muted"></i>
-                </button>
-
-                <button onclick="switchView('view-pagos')" class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0">
-                    <div class="bg-light rounded-circle p-2 me-3 text-warning"><i class="bi bi-receipt fs-5"></i></div>
-                    <div class="flex-grow-1 text-start">
-                        <h6 class="fw-bold mb-0">Historial de Pagos</h6>
-                        <small class="text-secondary" style="font-size: 0.75rem;">Revisa tus facturas pasadas</small>
-                    </div>
-                    <i class="bi bi-chevron-right text-muted"></i>
-                </button>
-            </div>
-
-            <h5 class="fw-bold mb-3 ps-2 border-start border-4 border-warning font-serif">Soporte</h5>
-            <div class="list-group rounded-4 shadow-sm border-0 overflow-hidden mb-5">
-                <a href="#" class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0 border-bottom">
-                    <div class="bg-light rounded-circle p-2 me-3 text-black"><i class="bi bi-question-circle-fill fs-5"></i></div>
-                    <h6 class="fw-bold mb-0 flex-grow-1">Centro de Ayuda</h6>
-                    <i class="bi bi-chevron-right text-muted"></i>
-                </a>
-                <a href="recojo.html" class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0 text-decoration-none">
-    <div class="bg-light rounded-circle p-2 me-3 text-black"><i class="bi bi-car-front-fill fs-5"></i></div>
-    <h6 class="fw-bold mb-0 flex-grow-1">Solicitar Recojo</h6>
-    <i class="bi bi-chevron-right text-muted"></i>
-</a>
-            </div>
-            
-            <div class="d-grid pb-4">
-                <a href="login.html" class="btn btn-outline-danger rounded-pill py-3 fw-bold">Cerrar Sesión</a>
-            </div>
+      <header
+        class="bg-black py-3 px-3 d-flex align-items-center sticky-top shadow-sm"
+      >
+        <a href="home.html" class="text-white text-decoration-none"
+          ><i class="bi bi-arrow-left fs-2"></i
+        ></a>
+        <div class="flex-grow-1 text-center me-4">
+          <span class="text-white fw-bold text-uppercase spacing-1"
+            >Mi Cuenta</span
+          >
         </div>
-    </div>
+      </header>
 
+      <div class="container py-4">
+        <div
+          class="bg-white rounded-4 p-4 shadow-sm text-center mb-4 position-relative overflow-hidden"
+        >
+          <div
+            class="position-absolute top-0 start-0 w-100 h-25 bg-gold opacity-50"
+          ></div>
+          <div class="position-relative z-2">
+            <div class="d-inline-block position-relative mb-3">
+              <img
+                src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+                class="rounded-circle border border-4 border-white shadow-sm"
+                style="width: 110px; height: 110px; object-fit: cover"
+              />
+              <button
+                onclick="switchView('view-edit')"
+                class="btn btn-black rounded-circle position-absolute bottom-0 end-0 p-2 border border-white"
+                style="
+                  width: 35px;
+                  height: 35px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                "
+              >
+                <i class="bi bi-pencil-fill small"></i>
+              </button>
+            </div>
+            <h3 class="fw-bold mb-0 font-serif">Issac Valdez</h3>
+            <p class="text-secondary small mb-3">issacvaldez@gmail.com</p>
+            <button
+              onclick="switchView('view-edit')"
+              class="btn btn-outline-dark rounded-pill px-4 py-1 btn-sm fw-bold"
+            >
+              Editar perfil
+            </button>
+          </div>
+        </div>
+
+        <h5
+          class="fw-bold mb-3 ps-2 border-start border-4 border-warning font-serif"
+        >
+          General
+        </h5>
+        <div
+          class="list-group rounded-4 shadow-sm border-0 overflow-hidden mb-4"
+        >
+          <button
+            onclick="switchView('view-reservas')"
+            class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0 border-bottom"
+          >
+            <div class="bg-light rounded-circle p-2 me-3 text-warning">
+              <i class="bi bi-calendar-check-fill fs-5"></i>
+            </div>
+            <div class="flex-grow-1 text-start">
+              <h6 class="fw-bold mb-0">Mis Reservas</h6>
+              <small class="text-secondary" style="font-size: 0.75rem"
+                >Consulta tus próximas estancias</small
+              >
+            </div>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </button>
+
+          <button
+            onclick="switchView('view-pagos')"
+            class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0"
+          >
+            <div class="bg-light rounded-circle p-2 me-3 text-warning">
+              <i class="bi bi-receipt fs-5"></i>
+            </div>
+            <div class="flex-grow-1 text-start">
+              <h6 class="fw-bold mb-0">Historial de Pagos</h6>
+              <small class="text-secondary" style="font-size: 0.75rem"
+                >Revisa tus facturas pasadas</small
+              >
+            </div>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </button>
+        </div>
+
+        <h5
+          class="fw-bold mb-3 ps-2 border-start border-4 border-warning font-serif"
+        >
+          Soporte
+        </h5>
+        <div
+          class="list-group rounded-4 shadow-sm border-0 overflow-hidden mb-5"
+        >
+          <a
+            href="#"
+            class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0 border-bottom"
+          >
+            <div class="bg-light rounded-circle p-2 me-3 text-black">
+              <i class="bi bi-question-circle-fill fs-5"></i>
+            </div>
+            <h6 class="fw-bold mb-0 flex-grow-1">Centro de Ayuda</h6>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </a>
+          <a
+            href="recojo.html"
+            class="list-group-item list-group-item-action p-3 d-flex align-items-center border-0 text-decoration-none"
+          >
+            <div class="bg-light rounded-circle p-2 me-3 text-black">
+              <i class="bi bi-car-front-fill fs-5"></i>
+            </div>
+            <h6 class="fw-bold mb-0 flex-grow-1">Solicitar Recojo</h6>
+            <i class="bi bi-chevron-right text-muted"></i>
+          </a>
+        </div>
+
+        <div class="d-grid pb-4">
+          <a
+            href="login.html"
+            class="btn btn-outline-danger rounded-pill py-3 fw-bold"
+            >Cerrar Sesión</a
+          >
+        </div>
+      </div>
+    </div>
 
     <div id="view-edit" class="view-section">
-        <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
-            <button onclick="switchView('view-main')" class="btn text-white p-0 border-0"><i class="bi bi-arrow-left fs-2"></i></button>
-            <div class="flex-grow-1 text-center me-4"><span class="text-white fw-bold">Editar Perfil</span></div>
-        </header>
+      <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
+        <button
+          onclick="switchView('view-main')"
+          class="btn text-white p-0 border-0"
+        >
+          <i class="bi bi-arrow-left fs-2"></i>
+        </button>
+        <div class="flex-grow-1 text-center me-4">
+          <span class="text-white fw-bold">Editar Perfil</span>
+        </div>
+      </header>
 
-        <div class="bg-purple-gradient p-4 text-center rounded-bottom-4 shadow mb-4">
-            <img src="img/perfil-usuario.jpg" class="rounded-circle border border-4 border-white mb-2" style="width: 100px; height: 100px; object-fit: cover;">
-            <h4 class="fw-bold mb-0">Issac Valdez</h4>
-            <small class="opacity-75">Miembro desde Abril 2024</small>
+      <div
+        class="bg-purple-gradient p-4 text-center rounded-bottom-4 shadow mb-4"
+      >
+        <img
+          src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop"
+          class="rounded-circle border border-4 border-white mb-2"
+          style="width: 100px; height: 100px; object-fit: cover"
+        />
+        <h4 class="fw-bold mb-0">Issac Valdez</h4>
+        <small class="opacity-75">Miembro desde Abril 2024</small>
+      </div>
+
+      <div class="container">
+        <div class="row bg-white rounded-4 shadow-sm mx-1 mb-4 p-3 text-center">
+          <div class="col-6 border-end">
+            <i class="bi bi-building fs-3 text-info"></i>
+            <h4 class="fw-bold mb-0 mt-1">12</h4>
+            <small class="text-secondary">Reservas</small>
+          </div>
+          <div class="col-6">
+            <i class="bi bi-star-fill fs-3 text-warning"></i>
+            <h4 class="fw-bold mb-0 mt-1">2500</h4>
+            <small class="text-secondary">Puntos</small>
+          </div>
         </div>
 
-        <div class="container">
-            <div class="row bg-white rounded-4 shadow-sm mx-1 mb-4 p-3 text-center">
-                <div class="col-6 border-end">
-                    <i class="bi bi-building fs-3 text-info"></i>
-                    <h4 class="fw-bold mb-0 mt-1">12</h4>
-                    <small class="text-secondary">Reservas</small>
-                </div>
-                <div class="col-6">
-                    <i class="bi bi-star-fill fs-3 text-warning"></i>
-                    <h4 class="fw-bold mb-0 mt-1">2500</h4>
-                    <small class="text-secondary">Puntos</small>
-                </div>
-            </div>
-
-            <h6 class="fw-bold mb-3 ps-2">Información Personal</h6>
-            <form class="bg-white p-4 rounded-4 shadow-sm mb-4">
-                <div class="mb-3">
-                    <label class="small text-secondary fw-bold mb-1">Nombre</label>
-                    <input type="text" class="form-control rounded-pill bg-light border-0" value="Issac Valdez">
-                </div>
-                <div class="mb-3">
-                    <label class="small text-secondary fw-bold mb-1">Email</label>
-                    <input type="email" class="form-control rounded-pill bg-light border-0" value="issacvaldez@gmail.com">
-                </div>
-                <div class="mb-4">
-                    <label class="small text-secondary fw-bold mb-1">Teléfono</label>
-                    <input type="tel" class="form-control rounded-pill bg-light border-0" value="+51 914 879 454">
-                </div>
-                <div class="d-grid">
-                    <button type="button" class="btn btn-primary rounded-pill py-2 fw-bold" style="background-color: #2962ff;">Guardar Cambios</button>
-                </div>
-            </form>
-        </div>
+        <h6 class="fw-bold mb-3 ps-2">Información Personal</h6>
+        <form class="bg-white p-4 rounded-4 shadow-sm mb-4">
+          <div class="mb-3">
+            <label class="small text-secondary fw-bold mb-1">Nombre</label>
+            <input
+              type="text"
+              class="form-control rounded-pill bg-light border-0"
+              value="Issac Valdez"
+            />
+          </div>
+          <div class="mb-3">
+            <label class="small text-secondary fw-bold mb-1">Email</label>
+            <input
+              type="email"
+              class="form-control rounded-pill bg-light border-0"
+              value="issacvaldez@gmail.com"
+            />
+          </div>
+          <div class="mb-4">
+            <label class="small text-secondary fw-bold mb-1">Teléfono</label>
+            <input
+              type="tel"
+              class="form-control rounded-pill bg-light border-0"
+              value="+51 914 879 454"
+            />
+          </div>
+          <div class="d-grid">
+            <button
+              type="button"
+              class="btn btn-primary rounded-pill py-2 fw-bold"
+              style="background-color: #2962ff"
+            >
+              Guardar Cambios
+            </button>
+          </div>
+        </form>
+      </div>
     </div>
-
 
     <div id="view-reservas" class="view-section">
-        <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
-            <button onclick="switchView('view-main')" class="btn text-white p-0 border-0"><i class="bi bi-arrow-left fs-2"></i></button>
-            <div class="flex-grow-1 text-center me-4"><span class="text-white fw-bold">Mis Reservas</span></div>
-        </header>
-
-        <div class="container py-4">
-            <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
-                <div class="position-relative">
-                    <img src="img/lima-select-1.jpg" class="card-img-top" style="height: 180px; object-fit: cover;">
-                    <span class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2"><i class="bi bi-check-circle-fill me-1"></i> Confirmada</span>
-                </div>
-                <div class="card-body">
-                    <h5 class="fw-bold mb-1">Casa Andina Select Miraflores</h5>
-                    <small class="text-secondary d-block mb-3">Código: RES001</small>
-                    
-                    <div class="d-flex justify-content-between align-items-center bg-light p-3 rounded-3 mb-3 text-center">
-                        <div>
-                            <small class="text-secondary d-block mb-1">Check-in</small>
-                            <span class="fw-bold"><i class="bi bi-calendar2 me-1"></i> 20 Dic</span>
-                        </div>
-                        <i class="bi bi-arrow-right text-secondary"></i>
-                        <div>
-                            <small class="text-secondary d-block mb-1">Check-out</small>
-                            <span class="fw-bold"><i class="bi bi-calendar2 me-1"></i> 25 Dic</span>
-                        </div>
-                    </div>
-
-                    <div class="d-flex justify-content-between align-items-center mb-3">
-                        <small class="text-secondary">Total Pagado</small>
-                        <h5 class="fw-bold mb-0">S/ 1,095</h5>
-                    </div>
-
-                    <div class="d-flex gap-2">
-    <button class="btn btn-primary rounded-pill flex-fill fw-bold" style="background-color: #2962ff;">Ver Detalles</button>
-    
-    <a href="voucher.html" class="btn btn-dark rounded-pill flex-fill fw-bold text-decoration-none d-flex align-items-center justify-content-center">
-        <i class="bi bi-download me-1"></i> Voucher
-    </a>
-</div>
-                </div>
-            </div>
-            
-            <div class="card border-0 shadow-sm rounded-4 overflow-hidden opacity-75">
-                <div class="position-relative">
-                    <img src="img/lima-standard-1.jpg" class="card-img-top" style="height: 180px; object-fit: cover; filter: grayscale(100%);">
-                    <span class="badge bg-secondary position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2">Completada</span>
-                </div>
-                <div class="card-body">
-                    <h5 class="fw-bold mb-1">Casa Andina Standard</h5>
-                    <small class="text-secondary">Código: RES998 • Hace 2 meses</small>
-                </div>
-            </div>
+      <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
+        <button
+          onclick="switchView('view-main')"
+          class="btn text-white p-0 border-0"
+        >
+          <i class="bi bi-arrow-left fs-2"></i>
+        </button>
+        <div class="flex-grow-1 text-center me-4">
+          <span class="text-white fw-bold">Mis Reservas</span>
         </div>
+      </header>
+
+      <div class="container py-4">
+        <div class="card border-0 shadow-sm rounded-4 overflow-hidden mb-4">
+          <div class="position-relative">
+            <img
+              src="https://images.unsplash.com/photo-1566073771259-6a8506099945?w=800&h=600&fit=crop"
+              class="card-img-top"
+              style="height: 180px; object-fit: cover"
+            />
+            <span
+              class="badge bg-success position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2"
+              ><i class="bi bi-check-circle-fill me-1"></i> Confirmada</span
+            >
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mb-1">Casa Andina Select Miraflores</h5>
+            <small class="text-secondary d-block mb-3">Código: RES001</small>
+
+            <div
+              class="d-flex justify-content-between align-items-center bg-light p-3 rounded-3 mb-3 text-center"
+            >
+              <div>
+                <small class="text-secondary d-block mb-1">Check-in</small>
+                <span class="fw-bold"
+                  ><i class="bi bi-calendar2 me-1"></i> 20 Dic</span
+                >
+              </div>
+              <i class="bi bi-arrow-right text-secondary"></i>
+              <div>
+                <small class="text-secondary d-block mb-1">Check-out</small>
+                <span class="fw-bold"
+                  ><i class="bi bi-calendar2 me-1"></i> 25 Dic</span
+                >
+              </div>
+            </div>
+
+            <div class="d-flex justify-content-between align-items-center mb-3">
+              <small class="text-secondary">Total Pagado</small>
+              <h5 class="fw-bold mb-0">S/ 1,095</h5>
+            </div>
+
+            <div class="d-flex gap-2">
+              <button
+                class="btn btn-primary rounded-pill flex-fill fw-bold"
+                style="background-color: #2962ff"
+              >
+                Ver Detalles
+              </button>
+
+              <a
+                href="voucher.html"
+                class="btn btn-dark rounded-pill flex-fill fw-bold text-decoration-none d-flex align-items-center justify-content-center"
+              >
+                <i class="bi bi-download me-1"></i> Voucher
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <div
+          class="card border-0 shadow-sm rounded-4 overflow-hidden opacity-75"
+        >
+          <div class="position-relative">
+            <img
+              src="https://images.unsplash.com/photo-1542314831-068cd1dbfeeb?w=800&h=600&fit=crop"
+              class="card-img-top"
+              style="height: 180px; object-fit: cover; filter: grayscale(100%)"
+            />
+            <span
+              class="badge bg-secondary position-absolute top-0 end-0 m-3 rounded-pill px-3 py-2"
+              >Completada</span
+            >
+          </div>
+          <div class="card-body">
+            <h5 class="fw-bold mb-1">Casa Andina Standard</h5>
+            <small class="text-secondary">Código: RES998 • Hace 2 meses</small>
+          </div>
+        </div>
+      </div>
     </div>
 
-
     <div id="view-pagos" class="view-section">
-        <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
-            <button onclick="switchView('view-main')" class="btn text-white p-0 border-0"><i class="bi bi-arrow-left fs-2"></i></button>
-            <div class="flex-grow-1 text-center me-4"><span class="text-white fw-bold">Historial de Pagos</span></div>
-        </header>
-
-        <div class="container py-4">
-            <div class="bg-green-card p-4 shadow mb-4">
-                <small class="opacity-75">Total Pagado</small>
-                <h1 class="fw-bold my-2">S/ 2,143</h1>
-                <div class="d-flex gap-2 mt-3">
-                    <span class="badge bg-white text-success rounded-pill px-3 py-1">3 transacciones</span>
-                    <span class="badge border border-white rounded-pill px-3 py-1"><i class="bi bi-check-all me-1"></i> Todo al día</span>
-                </div>
-            </div>
-
-            <h6 class="fw-bold mb-3 ps-2">Transacciones Recientes</h6>
-            
-            <div class="d-flex flex-column gap-3">
-                <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center">
-                    <div class="bg-light p-3 rounded-3 me-3 text-primary"><i class="bi bi-credit-card-fill fs-4"></i></div>
-                    <div class="flex-grow-1">
-                        <h6 class="fw-bold mb-0">Casa Andina Select</h6>
-                        <small class="text-secondary" style="font-size: 0.75rem;">16 Nov 2025 • Visa ****4532</small>
-                    </div>
-                    <div class="text-end">
-                        <span class="d-block fw-bold">S/ 1,095</span>
-                        <small class="text-success fw-bold"><i class="bi bi-check"></i> Pagado</small>
-                    </div>
-                </div>
-                
-                <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center">
-                    <div class="bg-light p-3 rounded-3 me-3 text-warning"><i class="bi bi-credit-card-fill fs-4"></i></div>
-                    <div class="flex-grow-1">
-                        <h6 class="fw-bold mb-0">Casa Andina Premium</h6>
-                        <small class="text-secondary" style="font-size: 0.75rem;">01 Nov 2025 • Visa ****4532</small>
-                    </div>
-                    <div class="text-end">
-                        <span class="d-block fw-bold">S/ 598</span>
-                        <small class="text-success fw-bold"><i class="bi bi-check"></i> Pagado</small>
-                    </div>
-                </div>
-
-                 <div class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center">
-                    <div class="bg-light p-3 rounded-3 me-3 text-secondary"><i class="bi bi-credit-card-fill fs-4"></i></div>
-                    <div class="flex-grow-1">
-                        <h6 class="fw-bold mb-0">Casa Andina Standard</h6>
-                        <small class="text-secondary" style="font-size: 0.75rem;">25 Oct 2025 • Visa ****4532</small>
-                    </div>
-                    <div class="text-end">
-                        <span class="d-block fw-bold">S/ 450</span>
-                        <small class="text-success fw-bold"><i class="bi bi-check"></i> Pagado</small>
-                    </div>
-                </div>
-            </div>
-
+      <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
+        <button
+          onclick="switchView('view-main')"
+          class="btn text-white p-0 border-0"
+        >
+          <i class="bi bi-arrow-left fs-2"></i>
+        </button>
+        <div class="flex-grow-1 text-center me-4">
+          <span class="text-white fw-bold">Historial de Pagos</span>
         </div>
+      </header>
+
+      <div class="container py-4">
+        <div class="bg-green-card p-4 shadow mb-4">
+          <small class="opacity-75">Total Pagado</small>
+          <h1 class="fw-bold my-2">S/ 2,143</h1>
+          <div class="d-flex gap-2 mt-3">
+            <span class="badge bg-white text-success rounded-pill px-3 py-1"
+              >3 transacciones</span
+            >
+            <span class="badge border border-white rounded-pill px-3 py-1"
+              ><i class="bi bi-check-all me-1"></i> Todo al día</span
+            >
+          </div>
+        </div>
+
+        <h6 class="fw-bold mb-3 ps-2">Transacciones Recientes</h6>
+
+        <div class="d-flex flex-column gap-3">
+          <div
+            class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center"
+          >
+            <div class="bg-light p-3 rounded-3 me-3 text-primary">
+              <i class="bi bi-credit-card-fill fs-4"></i>
+            </div>
+            <div class="flex-grow-1">
+              <h6 class="fw-bold mb-0">Casa Andina Select</h6>
+              <small class="text-secondary" style="font-size: 0.75rem"
+                >16 Nov 2025 • Visa ****4532</small
+              >
+            </div>
+            <div class="text-end">
+              <span class="d-block fw-bold">S/ 1,095</span>
+              <small class="text-success fw-bold"
+                ><i class="bi bi-check"></i> Pagado</small
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center"
+          >
+            <div class="bg-light p-3 rounded-3 me-3 text-warning">
+              <i class="bi bi-credit-card-fill fs-4"></i>
+            </div>
+            <div class="flex-grow-1">
+              <h6 class="fw-bold mb-0">Casa Andina Premium</h6>
+              <small class="text-secondary" style="font-size: 0.75rem"
+                >01 Nov 2025 • Visa ****4532</small
+              >
+            </div>
+            <div class="text-end">
+              <span class="d-block fw-bold">S/ 598</span>
+              <small class="text-success fw-bold"
+                ><i class="bi bi-check"></i> Pagado</small
+              >
+            </div>
+          </div>
+
+          <div
+            class="bg-white p-3 rounded-4 shadow-sm d-flex align-items-center"
+          >
+            <div class="bg-light p-3 rounded-3 me-3 text-secondary">
+              <i class="bi bi-credit-card-fill fs-4"></i>
+            </div>
+            <div class="flex-grow-1">
+              <h6 class="fw-bold mb-0">Casa Andina Standard</h6>
+              <small class="text-secondary" style="font-size: 0.75rem"
+                >25 Oct 2025 • Visa ****4532</small
+              >
+            </div>
+            <div class="text-end">
+              <span class="d-block fw-bold">S/ 450</span>
+              <small class="text-success fw-bold"
+                ><i class="bi bi-check"></i> Pagado</small
+              >
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
 
     <script>
-        function switchView(viewId) {
-            // 1. Ocultar todas las vistas
-            const views = document.querySelectorAll('.view-section');
-            views.forEach(view => view.classList.remove('active-view'));
+      function switchView(viewId) {
+        // 1. Ocultar todas las vistas
+        const views = document.querySelectorAll(".view-section");
+        views.forEach((view) => view.classList.remove("active-view"));
 
-            // 2. Mostrar la vista seleccionada
-            document.getElementById(viewId).classList.add('active-view');
+        // 2. Mostrar la vista seleccionada
+        document.getElementById(viewId).classList.add("active-view");
 
-            // 3. Scroll arriba
-            window.scrollTo(0, 0);
-        }
+        // 3. Scroll arriba
+        window.scrollTo(0, 0);
+      }
     </script>
-</body>
+  </body>
 </html>
