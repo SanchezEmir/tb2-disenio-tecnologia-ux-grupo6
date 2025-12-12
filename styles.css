@@ -1,0 +1,329 @@
+/* Importamos fuentes si no cargan del HTML */
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&display=swap');
+
+body, html {
+    height: 100%;
+    margin: 0;
+    font-family: 'Roboto', sans-serif;
+}
+
+.main-container {
+    /* Aquí pones la foto de Machu Picchu */
+    background: url('img/fondo-montana.jpg') no-repeat center center/cover;
+    min-height: 100vh;
+    position: relative;
+}
+
+/* Título Serif estilo "Inicia sesión" */
+.login-title {
+    font-family: 'Playfair Display', serif;
+    font-weight: 700;
+    font-size: 2rem;
+    border-bottom: 2px solid black; /* El subrayado grueso */
+    padding-bottom: 5px;
+    display: inline-block;
+}
+
+/* Ajustes específicos para los inputs redondeados */
+.input-group {
+    background-color: white;
+}
+
+.input-group:focus-within {
+    box-shadow: 0 0 0 0.25rem rgba(0, 0, 0, 0.1) !important;
+}
+
+/* El cuadro blanco del logo superior */
+.logo-box {
+    width: 200px;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #ddd; /* Borde suave opcional */
+}
+
+/* Redondear mucho la parte superior de la tarjeta blanca */
+.rounded-top-5 {
+    border-top-left-radius: 2rem !important;
+    border-top-right-radius: 2rem !important;
+}
+
+/* Footer negro al final */
+.footer-bar {
+    width: 100vw; /* Asegura que cubra el ancho completo */
+    margin-left: -1.5rem; /* Compensa el padding de la tarjeta padre */
+    margin-right: -1.5rem;
+    width: calc(100% + 3rem);
+    margin-bottom: -1.5rem; /* Pega al borde inferior */
+}
+/* =========================================
+   NUEVOS ESTILOS PARA REGISTRO (Agregar al final)
+   ========================================= */
+
+/* Círculo de la foto de perfil */
+.profile-circle {
+    width: 100px;
+    height: 100px;
+    background: rgba(255, 255, 255, 0.2); /* Blanco transparente */
+    backdrop-filter: blur(5px);
+    border: 4px solid white;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+/* El icono del lápiz pequeño */
+.edit-badge {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    background-color: transparent; /* O negro si prefieres */
+    border: 2px solid white;
+    border-radius: 50%;
+    width: 25px;
+    height: 25px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Sombra específica para los inputs del registro (efecto relieve) */
+.shadow-input {
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.15) !important;
+}
+
+/* Ajuste para que los inputs se vean altos y limpios como en el diseño */
+.form-control, .form-select {
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+/* Ajuste específico para el botón negro de registro */
+.btn-dark {
+    background-color: #1a1a1a;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+}
+/* =========================================
+   NUEVOS ESTILOS PARA HOME Y DESTINOS
+   ========================================= */
+
+/* Hero Banner Home */
+.hero-home {
+    background: url('img/hero-home-pool.jpg') no-repeat center center/cover;
+    height: 350px;
+    width: 100%;
+}
+
+/* Capa oscura sobre el banner para leer el texto */
+.overlay-dark {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.4);
+    z-index: 1;
+}
+
+/* Gradiente para que el texto se lea bien sobre las fotos de destinos */
+.bg-gradient-destination {
+    background: linear-gradient(to top, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 60%);
+}
+
+.destination-card {
+    height: 200px; /* Altura fija para uniformidad */
+}
+
+.destination-card .card-img {
+    height: 100%;
+    object-fit: cover; /* Asegura que la foto cubra toda la tarjeta */
+}
+
+.bg-gradient-dark {
+    background: linear-gradient(to top, rgba(0,0,0,0.9) 0%, rgba(0,0,0,0) 100%);
+}
+/* =========================================
+   ESTILOS PARA PANTALLA HOTELES (FILTROS)
+   ========================================= */
+
+/* Estilo de los botones (Tabs) */
+.nav-pills .nav-link {
+    color: #000; /* Texto negro por defecto */
+    background-color: transparent;
+    font-weight: 500;
+}
+
+/* Cuando el botón está activo (seleccionado) */
+.nav-pills .nav-link.active {
+    background-color: transparent; /* Fondo transparente */
+    color: #000;
+    border-width: 2px !important; /* Borde más grueso */
+    font-weight: bold;
+    box-shadow: 0 0 0 1px black; /* Truco para simular borde doble o resaltado */
+}
+
+/* Altura fija para las imágenes del carrusel */
+.hotel-img {
+    height: 250px;
+    object-fit: cover;
+}
+
+/* Botón Negro sólido personalizado */
+.btn-black {
+    background-color: #000;
+    color: white;
+    transition: background-color 0.3s;
+}
+.btn-black:hover {
+    background-color: #333;
+    color: white;
+}
+/* =========================================
+   ESTILOS PARA FLUJO DE RESERVA Y PAGO
+   ========================================= */
+
+/* Fondo dorado para calendarios */
+.bg-gold {
+    background-color: #E3C167;
+    color: black;
+}
+
+/* Grilla del calendario */
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 5px;
+}
+
+/* Estilos para los días seleccionados en el calendario */
+.selected-range-start {
+    background-color: black;
+    color: white;
+    border-radius: 50% 0 0 50%;
+    padding: 5px;
+}
+.selected-range {
+    background-color: black;
+    color: white;
+    padding: 5px;
+}
+.selected-range-end {
+    background-color: black;
+    color: white;
+    border-radius: 0 50% 50% 0;
+    padding: 5px;
+}
+
+/* Botones blancos personalizados */
+.btn-white {
+    background-color: white;
+    color: black;
+    border: 1px solid #dee2e6; /* Borde gris suave */
+    transition: all 0.2s;
+}
+
+/* Estado activo para tipo de habitación */
+.active-room-type {
+    background-color: black !important;
+    color: white !important;
+    border-color: black !important;
+}
+
+/* Estado activo para piso */
+.active-floor {
+    background-color: black !important;
+    color: white !important;
+    border-color: black !important;
+}
+
+/* Estilo y estado activo para botones de número de habitación */
+.room-btn:hover, .selected-room {
+    background-color: black !important;
+    color: white !important;
+    border-color: black !important;
+}
+
+/* Estado activo para método de pago */
+.selected-payment {
+    border: 2px solid black !important;
+    background-color: #f8f9fa !important; /* Un gris muy clarito de fondo */
+}
+
+/* =========================================
+   ESTILOS PERFIL
+   ========================================= */
+
+/* Clase para usar la fuente elegante en títulos específicos */
+.font-serif {
+    font-family: 'Playfair Display', serif;
+}
+
+/* Espaciado de letras para un look más premium */
+.spacing-1 {
+    letter-spacing: 1px;
+}
+
+/* Fondo dorado suave */
+.bg-gold {
+    background-color: #E3C167;
+}
+
+/* Efecto hover suave en los items del menú */
+.list-group-item-action:hover {
+    background-color: #f9f9f9;
+}
+/* =========================================
+   ESTILOS PARA PANTALLA DE RECOJO
+   ========================================= */
+
+/* Botón Verde Limón Brillante */
+.btn-lime {
+    background-color: #66BB6A; /* Verde del diseño */
+    color: white;
+    border: none;
+    transition: background-color 0.3s;
+}
+.btn-lime:hover {
+    background-color: #4CAF50; /* Un poco más oscuro al pasar mouse */
+    color: white;
+}
+
+/* Caja Azul de Información */
+.info-box-blue {
+    background-color: #E3F2FD; /* Fondo azul muy claro */
+    border: 1px solid #90CAF9;
+    color: #1565C0; /* Texto azul oscuro */
+}
+
+/* Tarjeta del Conductor (Gris azulado) */
+.driver-card {
+    background-color: #CFD8DC; 
+    border-radius: 15px;
+}
+
+/* Alerta Verde Claro */
+.bg-green-light {
+    background-color: #E8F5E9; /* Fondo muy suave */
+}
+
+/* Botones redondos grandes (Llamar/Chat) */
+.btn-round-action {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: white;
+    border: 2px solid black;
+    font-size: 1.5rem;
+    color: black;
+    transition: transform 0.2s;
+}
+.btn-round-action:active {
+    transform: scale(0.95); /* Efecto de clic */
+}

@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hotel Lima - Casa Andina</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.0/font/bootstrap-icons.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-light">
+
+    <header class="bg-black py-3 px-3 d-flex align-items-center sticky-top">
+        <a href="destinos.html" class="text-white text-decoration-none">
+            <i class="bi bi-arrow-left fs-2"></i>
+        </a>
+        <div class="flex-grow-1 text-center me-4">
+            <img src="img/logo-casa-andina-blanco.png" alt="Logo" height="30">
+        </div>
+    </header>
+
+    <div class="container py-4">
+        
+        <h4 class="text-center fw-bold mb-1">Filtrar por Categoría</h4>
+        <p class="text-center text-secondary small mb-3">Encuentra tu experiencia perfecta</p>
+
+        <ul class="nav nav-pills justify-content-center mb-3 gap-2" id="pills-tab" role="tablist">
+            <li class="nav-item" role="presentation">
+                <button class="nav-link active rounded-pill border border-dark px-4" id="pills-select-tab" data-bs-toggle="pill" data-bs-target="#pills-select" type="button" role="tab">Select</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill border border-dark px-4" id="pills-standard-tab" data-bs-toggle="pill" data-bs-target="#pills-standard" type="button" role="tab">Standard</button>
+            </li>
+            <li class="nav-item" role="presentation">
+                <button class="nav-link rounded-pill border border-dark px-4" id="pills-premium-tab" data-bs-toggle="pill" data-bs-target="#pills-premium" type="button" role="tab">Premium</button>
+            </li>
+        </ul>
+
+        <p class="text-center fw-bold small mb-4">Mostrando 1 hotel en Lima • <span id="category-label">Categoría Select</span></p>
+
+        <div class="tab-content" id="pills-tabContent">
+            
+            <div class="tab-pane fade show active" id="pills-select" role="tabpanel">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    
+                    <div id="carouselSelect" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active">
+                                <img src="img/lima-select-1.jpg" class="d-block w-100 hotel-img" alt="Hotel 1">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/lima-select-2.jpg" class="d-block w-100 hotel-img" alt="Hotel 2">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="img/lima-select-3.jpg" class="d-block w-100 hotel-img" alt="Hotel 3">
+                            </div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselSelect" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselSelect" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title fw-bold mb-0">Casa Andina - Miraflores</h5>
+                            <span class="badge bg-primary rounded-pill">SELECT</span>
+                        </div>
+                        
+                        <p class="small mb-1"><i class="bi bi-geo-alt-fill text-black"></i> <strong>Ubicación:</strong> Calle Schell 452, Miraflores</p>
+                        <p class="small mb-3"><i class="bi bi-building text-black"></i> 8 pisos • 20 habitaciones por piso</p>
+
+                        <p class="small fw-bold mb-2">Servicios incluido:</p>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge bg-light text-dark border fw-normal">Jacuzzi</span>
+                            <span class="badge bg-light text-dark border fw-normal">Restaurante / Bar</span>
+                            <span class="badge bg-light text-dark border fw-normal">Desayuno</span>
+                            <span class="badge bg-light text-dark border fw-normal">Gimnasio</span>
+                            <span class="badge bg-light text-dark border fw-normal">Spa (costo adicional)</span>
+                        </div>
+
+                        <div class="bg-black text-white rounded-4 p-3 d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <small class="d-block text-secondary">Precio desde</small>
+                                <h3 class="fw-bold mb-0">S/219</h3>
+                                <small class="text-secondary" style="font-size: 0.7rem;">+ S/61 de IGV y servicios</small>
+                            </div>
+                            <i class="bi bi-building fs-1 text-secondary"></i>
+                        </div>
+
+                        <div class="d-grid">
+                            <a href="reserva-fechas.html" class="btn btn-black rounded-pill py-2 fw-bold">Reservar Ahora</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-standard" role="tabpanel">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div id="carouselStandard" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="img/lima-standard-1.jpg" class="d-block w-100 hotel-img" alt="Std 1"></div>
+                            <div class="carousel-item"><img src="img/lima-standard-2.jpg" class="d-block w-100 hotel-img" alt="Std 2"></div>
+                            <div class="carousel-item"><img src="img/lima-standard-3.jpg" class="d-block w-100 hotel-img" alt="Std 3"></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselStandard" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselStandard" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title fw-bold mb-0">Casa Andina - Miraflores</h5>
+                            <span class="badge bg-info text-white rounded-pill">STANDARD</span>
+                        </div>
+                        <p class="small mb-1"><i class="bi bi-geo-alt-fill"></i> <strong>Ubicación:</strong> Av. Petit Thouars 5444</p>
+                        <p class="small mb-3"><i class="bi bi-building"></i> 5 pisos • 8 habitaciones por piso</p>
+                        
+                        <p class="small fw-bold mb-2">Servicios incluido:</p>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge bg-light text-dark border fw-normal">Caja fuerte</span>
+                            <span class="badge bg-light text-dark border fw-normal">Internet Center</span>
+                            <span class="badge bg-light text-dark border fw-normal">Desayuno</span>
+                        </div>
+
+                        <div class="bg-black text-white rounded-4 p-3 d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <small class="d-block text-secondary">Precio desde</small>
+                                <h3 class="fw-bold mb-0">S/178</h3>
+                                <small class="text-secondary" style="font-size: 0.7rem;">+ S/50 de IGV y servicios</small>
+                            </div>
+                            <i class="bi bi-building fs-1 text-secondary"></i>
+                        </div>
+                        <div class="d-grid"><button class="btn btn-black rounded-pill py-2 fw-bold">Reservar Ahora</button></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="tab-pane fade" id="pills-premium" role="tabpanel">
+                <div class="card border-0 shadow-sm rounded-4 overflow-hidden">
+                    <div id="carouselPremium" class="carousel slide">
+                        <div class="carousel-inner">
+                            <div class="carousel-item active"><img src="img/lima-premium-1.jpg" class="d-block w-100 hotel-img" alt="Pre 1"></div>
+                            <div class="carousel-item"><img src="img/lima-premium-2.jpg" class="d-block w-100 hotel-img" alt="Pre 2"></div>
+                            <div class="carousel-item"><img src="img/lima-premium-3.jpg" class="d-block w-100 hotel-img" alt="Pre 3"></div>
+                        </div>
+                        <button class="carousel-control-prev" type="button" data-bs-target="#carouselPremium" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon"></span>
+                        </button>
+                        <button class="carousel-control-next" type="button" data-bs-target="#carouselPremium" data-bs-slide="next">
+                            <span class="carousel-control-next-icon"></span>
+                        </button>
+                    </div>
+
+                    <div class="card-body">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
+                            <h5 class="card-title fw-bold mb-0">Casa Andina - Miraflores</h5>
+                            <span class="badge bg-warning text-dark rounded-pill">PREMIUM</span>
+                        </div>
+                        <p class="small mb-1"><i class="bi bi-geo-alt-fill"></i> <strong>Ubicación:</strong> Av. La Paz 463, Miraflores</p>
+                        <p class="small mb-3"><i class="bi bi-building"></i> 8 pisos • 10 habitaciones por piso</p>
+                        
+                        <p class="small fw-bold mb-2">Servicios incluido:</p>
+                        <div class="d-flex flex-wrap gap-2 mb-4">
+                            <span class="badge bg-light text-dark border fw-normal">Piscina</span>
+                            <span class="badge bg-light text-dark border fw-normal">Lobby</span>
+                            <span class="badge bg-light text-dark border fw-normal">Cochera</span>
+                            <span class="badge bg-light text-dark border fw-normal">Desayuno</span>
+                        </div>
+
+                        <div class="bg-black text-white rounded-4 p-3 d-flex justify-content-between align-items-center mb-3">
+                            <div>
+                                <small class="d-block text-secondary">Precio desde</small>
+                                <h3 class="fw-bold mb-0">S/372</h3>
+                                <small class="text-secondary" style="font-size: 0.7rem;">+ S/104 de IGV y servicios</small>
+                            </div>
+                            <i class="bi bi-building fs-1 text-secondary"></i>
+                        </div>
+                        <div class="d-grid"><button class="btn btn-black rounded-pill py-2 fw-bold">Reservar Ahora</button></div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>
