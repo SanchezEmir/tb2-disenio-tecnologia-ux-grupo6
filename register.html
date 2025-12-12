@@ -19,33 +19,43 @@
     <link rel="stylesheet" href="styles.css" />
   </head>
   <body>
-    <div class="main-container d-flex flex-column justify-content-between">
+    <div
+      class="main-container d-flex flex-column justify-content-between"
+      style="background: url('img/fondode.jpg') no-repeat center center/cover"
+    >
       <div class="top-section d-flex flex-column align-items-center pt-5 mb-3">
         <div class="profile-circle position-relative">
           <i class="bi bi-person-fill text-white" style="font-size: 4rem"></i>
           <div class="edit-badge">
-            <i class="bi bi-pencil-fill text-white small"></i>
+            <i
+              class="bi bi-pencil-fill text-white small"
+              style="font-size: 0.7rem"
+            ></i>
           </div>
         </div>
       </div>
 
       <div
-        class="bottom-card bg-white w-100 rounded-top-5 p-4 d-flex flex-column align-items-center flex-grow-1"
+        class="bottom-card bg-white w-100 rounded-top-5 p-4 d-flex flex-column align-items-center flex-grow-1 shadow-lg"
       >
         <h2
           class="login-title text-uppercase mb-2 text-center"
-          style="font-size: 1.5rem"
+          style="font-size: 1.5rem; letter-spacing: 1px"
         >
           Crear Nuevo Usuario
         </h2>
-        <p class="text-center text-secondary fst-italic mb-4 small">
+
+        <p
+          class="text-center text-secondary fst-italic mb-4 small"
+          style="line-height: 1.4"
+        >
           Eleve su Experiencia.<br />
           Regístrese para personalizar cada detalle de su estadía
         </p>
 
         <form class="w-100" style="max-width: 400px">
           <div class="mb-3">
-            <label class="form-label fst-italic text-secondary small"
+            <label class="form-label fst-italic text-secondary small fw-bold"
               >Nombre Completo</label
             >
             <input
@@ -55,7 +65,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label fst-italic text-secondary small"
+            <label class="form-label fst-italic text-secondary small fw-bold"
               >País</label
             >
             <input
@@ -65,7 +75,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label fst-italic text-secondary small"
+            <label class="form-label fst-italic text-secondary small fw-bold"
               >Contraseña</label
             >
             <div
@@ -79,7 +89,7 @@
           </div>
 
           <div class="mb-3">
-            <label class="form-label fst-italic text-secondary small"
+            <label class="form-label fst-italic text-secondary small fw-bold"
               >Correo electrónico</label
             >
             <input
@@ -89,37 +99,43 @@
           </div>
 
           <div class="mb-4">
-            <label class="form-label fst-italic text-secondary small"
-              >N° Celular</label
+            <label class="form-label fst-italic text-secondary small fw-bold"
+              >Nº Celular</label
             >
             <div
               class="input-group rounded-pill shadow-input overflow-hidden border"
             >
               <select
-                class="form-select border-0 bg-transparent fw-bold"
-                style="max-width: 100px"
+                class="form-select border-0 bg-transparent fw-bold ps-3"
+                style="
+                  max-width: 110px;
+                  background-position: right 0.75rem center;
+                "
               >
                 <option>🇵🇪 +51</option>
                 <option>🇺🇸 +1</option>
                 <option>🇪🇸 +34</option>
               </select>
+              <div
+                style="width: 1px; background-color: #dee2e6; margin: 5px 0"
+              ></div>
               <input type="tel" class="form-control border-0" />
-              <span class="input-group-text bg-white border-0"
+              <span class="input-group-text bg-white border-0 pe-3"
                 ><i class="bi bi-telephone"></i
               ></span>
             </div>
           </div>
 
-          <div class="mb-4 form-check d-flex align-items-start">
+          <div class="mb-4 form-check d-flex align-items-start ps-4">
             <input
               type="checkbox"
               class="form-check-input mt-1 me-2"
               id="promo"
-              style="border-color: #333"
+              style="border-color: #999"
             />
             <label
-              class="form-check-label text-secondary"
-              style="font-size: 0.75rem; line-height: 1.2"
+              class="form-check-label text-secondary fst-italic"
+              style="font-size: 0.7rem; line-height: 1.2"
               for="promo"
             >
               Deseo recibir comunicaciones personalizadas, incluida ofertas,
@@ -130,7 +146,8 @@
           <div class="d-grid gap-2 mb-3">
             <button
               type="submit"
-              class="btn btn-dark rounded-pill py-2 fw-bold"
+              class="btn btn-dark rounded-pill py-2 fw-bold text-uppercase"
+              style="background-color: #1a1a1a"
             >
               Regístrate hoy mismo
             </button>
@@ -139,7 +156,7 @@
           <div class="text-center mb-4">
             <a
               href="login.html"
-              class="text-secondary text-decoration-underline small"
+              class="text-secondary text-decoration-underline small fst-italic"
               >Cancelar</a
             >
           </div>
